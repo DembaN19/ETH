@@ -10,3 +10,31 @@ models:
           - unique
           - not_null
   
+
+  - name: eth_whale_alert
+    description: "Model for identifying whale transactions in Ethereum data."
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: transaction_hash
+        description: "Unique identifier for each Ethereum transaction."
+        data_type: string
+      - name: block_number
+        description: "The block number in which the transaction was included."
+        data_type: integer
+      - name: block_timestamp
+        description: "The timestamp of the block in which the transaction was included."
+        data_type: timestamp
+      - name: from_address
+        description: "The address of the sender of the transaction."
+        data_type: string
+      - name: to_address
+        description: "The address of the recipient of the transaction."
+        data_type: string
+      - name: value_wei
+        description: "The value of the transaction in wei."
+        data_type: number(38,0)
+      - name: value_eth
+        description: "The value of the transaction in ether."
+        data_type: number(38,6)

@@ -4,8 +4,8 @@ select
     block_timestamp,
     from_address,
     to_address,
-    value_wei,
-    value_wei / 1e18 as value_eth
+    value_wei::numeric(38,0) as value_wei,
+    (value_wei / 1e18)::numeric(38,6) as value_eth
 from {{ ref('stg_eth_succeeded') }}
 where value_wei >= 1e20
 order by block_timestamp desc
