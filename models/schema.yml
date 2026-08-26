@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: stg_eth
+    description: "Staging model for Ethereum transaction data."
+    columns:
+      - name: HASH_KEY
+        description: "Unique identifier for each Ethereum transaction."
+        tests:
+          - unique
+          - not_null
+  
